@@ -1,15 +1,15 @@
-import hero from "@/assets/photos/hero.jpg.asset.json";
-import engineer from "@/assets/photos/engineer.jpg.asset.json";
-import fieldteam from "@/assets/photos/fieldteam.jpg.asset.json";
-import treatment from "@/assets/photos/treatment.jpg.asset.json";
-import canal from "@/assets/photos/canal.jpg.asset.json";
-import metal from "@/assets/photos/metal.jpg.asset.json";
-import nigeria from "@/assets/photos/nigeria.jpg.asset.json";
-import plans from "@/assets/photos/plans.jpg.asset.json";
-import water from "@/assets/photos/water.jpg.asset.json";
-import watertap from "@/assets/photos/watertap.jpg.asset.json";
-import well from "@/assets/photos/well.jpg.asset.json";
-import workers from "@/assets/photos/workers.jpg.asset.json";
+import hero from "@/assets/photos/hero.jpg";
+import engineer from "@/assets/photos/engineer.jpg";
+import fieldteam from "@/assets/photos/fieldteam.jpg";
+import treatment from "@/assets/photos/treatment.jpg";
+import canal from "@/assets/photos/canal.jpg";
+import metal from "@/assets/photos/metal.jpg";
+import nigeria from "@/assets/photos/nigeria.jpg";
+import plans from "@/assets/photos/plans.jpg";
+import water from "@/assets/photos/water.jpg";
+import watertap from "@/assets/photos/watertap.jpg";
+import well from "@/assets/photos/well.jpg";
+import workers from "@/assets/photos/workers-tricure.jpg";
 
 export const company = {
   name: "Tricure Engineering Limited",
@@ -22,18 +22,18 @@ export const company = {
 };
 
 export const photos = {
-  hero: hero.url,
-  engineer: engineer.url,
-  fieldteam: fieldteam.url,
-  treatment: treatment.url,
-  canal: canal.url,
-  metal: metal.url,
-  nigeria: nigeria.url,
-  plans: plans.url,
-  water: water.url,
-  watertap: watertap.url,
-  well: well.url,
-  workers: workers.url,
+  hero,
+  engineer,
+  fieldteam,
+  treatment,
+  canal,
+  metal,
+  nigeria,
+  plans,
+  water,
+  watertap,
+  well,
+  workers,
 };
 
 export const services = [
