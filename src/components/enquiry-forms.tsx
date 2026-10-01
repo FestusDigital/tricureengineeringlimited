@@ -1,5 +1,5 @@
 import { useState, type FormEvent } from "react";
-import { CalendarDays, MessageCircle } from "lucide-react";
+import { CalendarDays, Copy, ExternalLink, MessageCircle } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { services, whatsappUrl } from "@/lib/site";
 
@@ -13,15 +13,25 @@ export function EnquiryForm({ appointment = false }: { appointment?: boolean }) 
   const initial = appointment ? { name: "", phone: "", date: "", time: "", service: "", message: "" } : { name: "", phone: "", service: "", location: "", date: "", message: "" };
   const [form, setForm] = useState<FormState>(initial);
   const [error, setError] = useState("");
+  const [delivery, setDelivery] = useState<{ message: string; url: string } | null>(null);
+  const [copied, setCopied] = useState(false);
   const update = (name: string, value: string) => setForm((current) => ({ ...current, [name]: value }));
   const submit = (event: FormEvent) => {
     event.preventDefault();
     if (Object.entries(form).some(([key, value]) => key !== "message" && !value.trim())) { setError("Please complete every required field."); return; }
-    setError("");
+    setError(""); setCopied(false);
     const lines = appointment
       ? ["Hello Tricure Engineering Limited, I would like to request an appointment.", `Name: ${form.name}`, `Phone: ${form.phone}`, `Preferred date: ${form.date}`, `Preferred time: ${form.time}`, `Service or project type: ${form.service}`, `Additional message: ${form.message || "None"}`]
       : ["Hello Tricure Engineering Limited, I would like to make a service enquiry.", `Full name: ${form.name}`, `Phone: ${form.phone}`, `Service required: ${form.service}`, `Project location: ${form.location}`, `Preferred date: ${form.date}`, `Message: ${form.message || "None"}`];
-    window.open(whatsappUrl(lines.join("\n")), "_blank", "noopener,noreferrer");
+    const message = lines.join("\n");
+    const url = whatsappUrl(message);
+    setDelivery({ message, url });
+    window.open(url, "_blank", "noopener,noreferrer");
+  };
+  const copyMessage = async () => {
+    if (!delivery) return;
+    await navigator.clipboard.writeText(delivery.message);
+    setCopied(true);
   };
   return (
     <form className="enquiry-form" onSubmit={submit} noValidate>
@@ -36,8 +46,9 @@ export function EnquiryForm({ appointment = false }: { appointment?: boolean }) 
         <label className="field full"><span>{appointment ? "Additional Message" : "Message"}</span><textarea rows={5} value={form.message} onChange={(event) => update("message", event.target.value)} /></label>
       </div>
       {error && <p className="form-error" role="alert">{error}</p>}
-      <p className="form-note">Your details will open in WhatsApp for you to review and send. An appointment remains a request until Tricure responds.</p>
+      <p className="form-note">Your details will open in WhatsApp for you to review and send to 08052367684. An appointment remains a request until Tricure responds.</p>
       <Button type="submit" size="lg">{appointment ? "Send Appointment Request" : "Submit Enquiry"}</Button>
+      {delivery && <div className="delivery-fallback" role="status"><h3>Your enquiry is ready</h3><p>If WhatsApp did not open, use the button below or copy the complete message.</p><div><Button asChild><a href={delivery.url} target="_blank" rel="noreferrer"><ExternalLink /> Open WhatsApp</a></Button><Button type="button" variant="outline" onClick={copyMessage}><Copy /> {copied ? "Copied" : "Copy Message"}</Button></div></div>}
     </form>
   );
 }
