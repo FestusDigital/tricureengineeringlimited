@@ -1,7 +1,8 @@
 # Roadmap
 
-- [ ] Bundle every website photograph locally so images render on Vercel
-- [ ] Add Tricure branding to the safety vests in the Borehole Rehabilitation photograph
-- [ ] Strengthen both forms with reliable WhatsApp handoff and a visible fallback
-- [ ] Add an AI service adviser for site, water need, and project constraints
-- [ ] Verify the AI response, enquiry handoff, image loading, mobile layout, and production build
+- [ ] Fix current type errors without changing behavior
+- [ ] Reposition shared company content around Electrical, Water and Metal Works
+- [ ] Update Home, About, Services, Process, Projects and Contact incrementally
+- [ ] Use balanced real photography for all three divisions
+- [ ] Update forms, adviser, navigation and metadata for all divisions
+- [ ] Verify images, interactions, mobile layouts, branding and visible copy
