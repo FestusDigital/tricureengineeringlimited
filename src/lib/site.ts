@@ -9,7 +9,7 @@ import plans from "@/assets/photos/plans.jpg";
 import water from "@/assets/photos/water.jpg";
 import watertap from "@/assets/photos/watertap.jpg";
 import well from "@/assets/photos/well.jpg";
-import workers from "@/assets/photos/workers-tricure.jpg";
+import workers from "@/assets/photos/workers.jpg";
 
 export const company = {
   name: "Tricure Engineering Limited",
@@ -37,33 +37,29 @@ export const photos = {
 };
 
 export const services = [
-  { title: "Borehole Drilling", image: photos.hero, description: "Drilling work planned around the site, access conditions and the requirements discussed with the client." },
-  { title: "Hydrogeological and Site Survey", image: photos.engineer, description: "Site information gathering to support practical decisions before drilling work begins." },
-  { title: "Borehole Construction", image: photos.canal, description: "A coordinated approach to borehole construction, from planning through the required site work." },
-  { title: "Borehole Pump Installation", image: photos.metal, description: "Pump installation considered in relation to the borehole and the intended water system." },
-  { title: "Borehole Rehabilitation", image: photos.workers, description: "Assessment and practical work for existing boreholes that require attention or improvement." },
-  { title: "Borehole Maintenance", image: photos.fieldteam, description: "Planned maintenance support for boreholes, pumps and related system components." },
-  { title: "Water System Solutions", image: photos.treatment, description: "Water engineering support for residential, commercial and project specific requirements." },
+  { title: "Electrical", image: photos.treatment, description: "Electrical engineering solutions, electrical systems, installation and related engineering services discussed around the stated requirement." },
+  { title: "Water", image: photos.canal, description: "Water engineering that includes confirmed areas such as borehole drilling, borehole construction, pump systems, rehabilitation and maintenance." },
+  { title: "Metal Works", image: photos.metal, description: "Metal works, fabrication and related engineering solutions considered in relation to the client's stated project requirement." },
 ];
 
 export const process = [
   { number: "01", title: "Enquiry", text: "Contact Tricure and share the service or project requirement." },
   { number: "02", title: "Site or Requirement Assessment", text: "Relevant site details and project information are gathered." },
   { number: "03", title: "Technical Planning", text: "An appropriate approach is considered based on the available project information." },
-  { number: "04", title: "Execution", text: "The required engineering or drilling work is carried out." },
+  { number: "04", title: "Execution", text: "The required engineering work is carried out according to the agreed scope." },
   { number: "05", title: "Completion and Follow Up", text: "The completed work is reviewed and relevant follow up is provided." },
 ];
 
 export const gallery = [
-  { src: photos.hero, title: "Drilling Operations", alt: "Aerial view of large scale drilling work and site equipment" },
-  { src: photos.engineer, title: "Site Assessment", alt: "Field engineer reviewing technical information outdoors" },
-  { src: photos.fieldteam, title: "Field Engineering", alt: "Engineering crew working together on a construction site" },
-  { src: photos.treatment, title: "Water Engineering", alt: "Aerial view of water treatment infrastructure" },
-  { src: photos.canal, title: "Site Work", alt: "Construction team working around water infrastructure" },
-  { src: photos.metal, title: "Engineering Equipment", alt: "Precision metal drilling in an engineering workshop" },
+  { src: photos.treatment, title: "Electrical Systems", alt: "Electrical equipment installed within an engineering environment" },
+  { src: photos.engineer, title: "Engineering Assessment", alt: "Field engineer reviewing technical information outdoors" },
+  { src: photos.metal, title: "Metal Works", alt: "Metal drilling equipment operating in a fabrication workshop" },
+  { src: photos.canal, title: "Water Engineering", alt: "Construction team working around water infrastructure" },
   { src: photos.plans, title: "Technical Planning", alt: "Technical professional reviewing plans at a desk" },
-  { src: photos.workers, title: "Project Coordination", alt: "Construction team coordinating work on site" },
-  { src: photos.well, title: "Groundwater Access", alt: "Water well in a rural landscape" },
+  { src: photos.fieldteam, title: "Engineering Operations", alt: "Engineering crew working together on an outdoor site" },
+  { src: photos.water, title: "Water Systems", alt: "Water system equipment viewed from above" },
+  { src: photos.hero, title: "Project Infrastructure", alt: "Large engineering infrastructure under construction" },
+  { src: photos.watertap, title: "Water Access", alt: "People collecting water from an outdoor water point" },
 ];
 
 export const whatsappUrl = (message: string) =>
