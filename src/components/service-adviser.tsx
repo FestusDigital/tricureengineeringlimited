@@ -5,7 +5,7 @@ import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
 import { recommendServices } from "@/lib/service-adviser.functions";
 import { whatsappUrl } from "@/lib/site";
 
-const initialForm = { site: "", waterNeeds: "", constraints: "" };
+const initialForm = { site: "", needs: "", constraints: "" };
 
 export function ServiceAdviser() {
   const [form, setForm] = useState(initialForm);
@@ -15,7 +15,7 @@ export function ServiceAdviser() {
   const [loading, setLoading] = useState(false);
 
   const enquiry = recommendation
-    ? `Hello Tricure Engineering Limited, I used your service adviser and would like to discuss my requirement.\n\nSite and location details: ${form.site}\nWater needs: ${form.waterNeeds}\nProject constraints: ${form.constraints}\n\nService adviser recommendation: ${recommendation}`
+    ? `Hello Tricure Engineering Limited, I used your service adviser and would like to discuss my requirement.\n\nSite and location details: ${form.site}\nEngineering need: ${form.needs}\nProject constraints: ${form.constraints}\n\nService adviser recommendation: ${recommendation}`
     : "";
 
   async function submit(event: FormEvent) {
@@ -44,8 +44,8 @@ export function ServiceAdviser() {
       <div className="shell adviser-layout">
         <div className="adviser-intro">
           <span className="eyebrow light">Service adviser</span>
-          <h2 id="service-adviser-title">Describe your water project</h2>
-          <p>Share what you know about the site, the water requirement and any access or timing constraints. The adviser will suggest relevant Tricure services and prepare a WhatsApp enquiry.</p>
+          <h2 id="service-adviser-title">Describe your engineering requirement</h2>
+          <p>Share what you know about the site, the required work and any access or timing constraints. The adviser will identify a relevant Tricure division and prepare a WhatsApp enquiry.</p>
           <p className="adviser-caution">This is an initial guide, not a site assessment or technical guarantee.</p>
         </div>
         <form className="adviser-form" onSubmit={submit}>
@@ -54,12 +54,12 @@ export function ServiceAdviser() {
             <textarea required minLength={10} maxLength={1200} rows={4} placeholder="For example, the area in Lagos, property type, available space and site access" value={form.site} onChange={(event) => setForm({ ...form, site: event.target.value })} />
           </label>
           <label className="field">
-            <span>Water needs</span>
-            <textarea required minLength={10} maxLength={1200} rows={4} placeholder="Describe who will use the water and the current water situation" value={form.waterNeeds} onChange={(event) => setForm({ ...form, waterNeeds: event.target.value })} />
+            <span>Engineering need</span>
+            <textarea required minLength={10} maxLength={1200} rows={4} placeholder="Describe the electrical, water, metal work or other engineering requirement" value={form.needs} onChange={(event) => setForm({ ...form, needs: event.target.value })} />
           </label>
           <label className="field">
             <span>Project constraints</span>
-            <textarea required minLength={3} maxLength={1200} rows={3} placeholder="Mention access, preferred timing, an existing borehole, pump issues or other limitations" value={form.constraints} onChange={(event) => setForm({ ...form, constraints: event.target.value })} />
+            <textarea required minLength={3} maxLength={1200} rows={3} placeholder="Mention access, preferred timing, existing systems or other limitations" value={form.constraints} onChange={(event) => setForm({ ...form, constraints: event.target.value })} />
           </label>
           <Button type="submit" size="lg" disabled={loading}>{loading ? <><LoaderCircle className="adviser-spinner" /> Preparing recommendation</> : <><Bot /> Recommend Services</>}</Button>
           {error && <Alert variant="destructive"><AlertTitle>Recommendation unavailable</AlertTitle><AlertDescription>{error}</AlertDescription></Alert>}

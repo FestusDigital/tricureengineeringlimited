@@ -9,15 +9,15 @@ export function SiteFooter() {
       <div className="shell footer-grid">
         <div className="footer-brand">
           <img src={logo} alt="Tricure Engineering Limited" />
-          <p>Practical drilling and water engineering solutions for residential, commercial and project specific requirements.</p>
+          <p>Practical engineering solutions across Electrical, Water and Metal Works for residential, commercial and project specific requirements.</p>
         </div>
         <div>
           <h2>Navigate</h2>
-          <Link to="/about">About</Link><Link to="/services">Services</Link><Link to="/process">Our Process</Link><Link to="/projects">Projects</Link><Link to="/contact">Contact</Link>
+          <Link to="/about">About</Link><Link to="/services">Divisions</Link><Link to="/process">Our Process</Link><Link to="/projects">Projects</Link><Link to="/contact" search={{ form: "service" }}>Contact</Link>
         </div>
         <div>
-          <h2>Services</h2>
-          {services.slice(0, 5).map((service) => <Link key={service.title} to="/services" hash={service.title.toLowerCase().replaceAll(" ", "_")}>{service.title}</Link>)}
+          <h2>Core Divisions</h2>
+          {services.map((service) => <Link key={service.title} to="/services" hash={service.title.toLowerCase().replaceAll(" ", "_")}>{service.title}</Link>)}
         </div>
         <div>
           <h2>Contact</h2>

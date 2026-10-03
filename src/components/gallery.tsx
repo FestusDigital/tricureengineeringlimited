@@ -6,6 +6,7 @@ import { gallery } from "@/lib/site";
 export function Gallery({ limit }: { limit?: number }) {
   const items = limit ? gallery.slice(0, limit) : gallery;
   const [active, setActive] = useState<number | null>(null);
+  const activeItem = active === null ? undefined : items[active];
   const move = (step: number) => setActive((current) => current === null ? null : (current + step + items.length) % items.length);
   useEffect(() => {
     if (active === null) return;
@@ -28,11 +29,11 @@ export function Gallery({ limit }: { limit?: number }) {
           </button>
         ))}
       </div>
-      {active !== null && (
-        <div className="lightbox" role="dialog" aria-modal="true" aria-label={items[active].title}>
+      {activeItem && (
+        <div className="lightbox" role="dialog" aria-modal="true" aria-label={activeItem.title}>
           <Button variant="ghost" size="icon" className="lightbox-close" aria-label="Close gallery" onClick={() => setActive(null)}><X /></Button>
           <Button variant="ghost" size="icon" className="lightbox-prev" aria-label="Previous image" onClick={() => move(-1)}><ChevronLeft /></Button>
-          <figure><img src={items[active].src} alt={items[active].alt} /><figcaption>{items[active].title}</figcaption></figure>
+          <figure><img src={activeItem.src} alt={activeItem.alt} /><figcaption>{activeItem.title}</figcaption></figure>
           <Button variant="ghost" size="icon" className="lightbox-next" aria-label="Next image" onClick={() => move(1)}><ChevronRight /></Button>
         </div>
       )}
