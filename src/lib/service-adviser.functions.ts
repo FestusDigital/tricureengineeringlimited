@@ -4,7 +4,7 @@ import { createServiceRecommendation } from "./service-adviser.server";
 
 const adviserInput = z.object({
   site: z.string().trim().min(10).max(1200),
-  waterNeeds: z.string().trim().min(10).max(1200),
+  needs: z.string().trim().min(10).max(1200),
   constraints: z.string().trim().min(3).max(1200),
 });
 

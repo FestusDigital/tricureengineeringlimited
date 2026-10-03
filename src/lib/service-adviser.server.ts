@@ -4,18 +4,14 @@ import { createGatewayFetch } from "./ai-run-id.server";
 
 export type AdviserInput = {
   site: string;
-  waterNeeds: string;
+  needs: string;
   constraints: string;
 };
 
 const serviceList = [
-  "Borehole Drilling",
-  "Hydrogeological and Site Survey",
-  "Borehole Construction",
-  "Borehole Pump Installation",
-  "Borehole Rehabilitation",
-  "Borehole Maintenance",
-  "Water System Solutions",
+  "Electrical",
+  "Water",
+  "Metal Works",
 ];
 
 export async function createServiceRecommendation(data: AdviserInput) {
@@ -36,8 +32,8 @@ export async function createServiceRecommendation(data: AdviserInput) {
   try {
     const result = streamText({
       model: openai.responses("openai/gpt-6-astra"),
-      system: `You are the service adviser for Tricure Engineering Limited in Agege, Lagos. Recommend only services from this exact list: ${serviceList.join(", ")}. Give a short, cautious recommendation based only on the visitor's description. Do not invent site findings, prices, timelines, guarantees, availability, coverage, company history, or technical measurements. Do not claim a survey has happened. Say that final suitability requires a conversation and, where relevant, a site assessment. Write two brief paragraphs in plain English. Begin with "Recommended starting point:" and name one to three relevant listed services. Do not use bullet points or any dash character.`,
-      prompt: `Site and location details: ${data.site}\nWater needs: ${data.waterNeeds}\nProject constraints: ${data.constraints}`,
+      system: `You are the service adviser for Tricure Engineering Limited in Agege, Lagos. Recommend only divisions from this exact list: ${serviceList.join(", ")}. Water may include the confirmed borehole, pump and water system areas. Electrical and Metal Works must remain broad because exact services are not confirmed. Give a short, cautious recommendation based only on the visitor's description. Do not invent services, site findings, prices, timelines, guarantees, availability, coverage, company history, or technical measurements. Do not claim an assessment has happened. Say that final suitability requires a conversation and, where relevant, a site assessment. Write two brief paragraphs in plain English. Begin with "Recommended starting point:" and name one or more relevant listed divisions. Do not use bullet points or any dash character.`,
+      prompt: `Site and location details: ${data.site}\nEngineering need: ${data.needs}\nProject constraints: ${data.constraints}`,
       providerOptions: {
         openai: {
           forceReasoning: true,

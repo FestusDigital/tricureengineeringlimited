@@ -8,7 +8,7 @@ import { company } from "@/lib/site";
 const links = [
   { to: "/", label: "Home" },
   { to: "/about", label: "About" },
-  { to: "/services", label: "Services" },
+  { to: "/services", label: "Divisions" },
   { to: "/process", label: "Our Process" },
   { to: "/projects", label: "Projects" },
   { to: "/contact", label: "Contact" },
@@ -23,7 +23,7 @@ export function SiteHeader() {
     <header className="site-header">
       <div className="topline">
         <div className="shell topline-inner">
-          <span>Engineering and drilling services in Lagos</span>
+          <span>Electrical, Water and Metal Works in Lagos</span>
           <a href={company.phone}><Phone aria-hidden="true" /> {company.phoneDisplay}</a>
         </div>
       </div>

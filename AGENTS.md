@@ -14,3 +14,4 @@
 - Bundle all public website photography through source imports so third party deployments do not depend on temporary hosted asset paths.
 - Form delivery uses a prefilled WhatsApp handoff with a copyable fallback because Tricure has no email delivery service.
 - AI service guidance is a server side one shot recommendation restricted to Tricure's published services and never represents a site assessment.
+- Present Electrical, Water and Metal Works as three equal core divisions because none is an additional or secondary service.
